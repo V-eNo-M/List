@@ -87,7 +87,7 @@ public class List {
     public void writeAllList() {
         List buff = head;
         for (int i = 0; i < size; i++) {
-            System.out.println(buff.getValue());
+            System.out.print(buff.getValue() + " ");
             buff = buff.getNext();
         }
     }
