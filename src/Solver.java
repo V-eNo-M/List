@@ -1,11 +1,11 @@
 /**
  * Created by Ivan Shulga on 12.03.2016.
- * Задача 1. Циклический список
+ * Р—Р°РґР°С‡Р° 1. Р¦РёРєР»РёС‡РµСЃРєРёР№ СЃРїРёСЃРѕРє
  */
 public class Solver {
 
     public static void main(String[] args) {
-            //Инициализируем список и добавляем элементы
+        //РРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј СЃРїРёСЃРѕРє Рё РґРѕР±Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚С‹
         List myList = new List();
         myList.Insert(4);
         myList.Insert(7);
@@ -17,7 +17,7 @@ public class Solver {
         myList.Insert(44);
         myList.Insert(99);
 
-            //Вывод на экрран всего списка
+        //Р’С‹РІРѕРґ РЅР° СЌРєСЂСЂР°РЅ РІСЃРµРіРѕ СЃРїРёСЃРєР°
         myList.writeAllList();
     }
 }

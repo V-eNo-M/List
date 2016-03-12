@@ -1,6 +1,6 @@
 /**
  * Created by Ivan Shulga on 12.03.2016.
- * Задача 1. Циклический список
+ * Р—Р°РґР°С‡Р° 1. Р¦РёРєР»РёС‡РµСЃРєРёР№ СЃРїРёСЃРѕРє
  */
 public class List {
     private int value;
@@ -9,7 +9,7 @@ public class List {
     private static int size = 0;
 
     public void Insert(int newValue) {
-                        //Первый добавленный элемент списка становится головой.
+        //РџРµСЂРІС‹Р№ РґРѕР±Р°РІР»РµРЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° СЃС‚Р°РЅРѕРІРёС‚СЃСЏ РіРѕР»РѕРІРѕР№.
         if(size == 0){
             this.value = newValue;
             head = this;
@@ -18,40 +18,40 @@ public class List {
         else {
             List newElement = new List();
             newElement.setValue(newValue);
-                        //Для упрощения второй элемент ссылается на голову, а голова на него.
+            //Р”Р»СЏ СѓРїСЂРѕС‰РµРЅРёСЏ РІС‚РѕСЂРѕР№ СЌР»РµРјРµРЅС‚ СЃСЃС‹Р»Р°РµС‚СЃСЏ РЅР° РіРѕР»РѕРІСѓ, Р° РіРѕР»РѕРІР° РЅР° РЅРµРіРѕ.
             if(size == 1) {
                 newElement.next = head;
                 this.next = newElement;
             }
-                        //Если размер списка становится больше двух, то нужно проверить куда нам вставить новый элемент.
+            //Р•СЃР»Рё СЂР°Р·РјРµСЂ СЃРїРёСЃРєР° СЃС‚Р°РЅРѕРІРёС‚СЃСЏ Р±РѕР»СЊС€Рµ РґРІСѓС…, С‚Рѕ РЅСѓР¶РЅРѕ РїСЂРѕРІРµСЂРёС‚СЊ РєСѓРґР° РЅР°Рј РІСЃС‚Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚.
             else {
                 List buffElement = head;
                 for (int i = 0; i < size; i++) {
-                        //Вставляем элемент, если он больше текущего и меньше следующего.
+                    //Р’СЃС‚Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚, РµСЃР»Рё РѕРЅ Р±РѕР»СЊС€Рµ С‚РµРєСѓС‰РµРіРѕ Рё РјРµРЅСЊС€Рµ СЃР»РµРґСѓСЋС‰РµРіРѕ.
                     if ((buffElement.getValue() < newElement.getValue() && buffElement.getNext().getValue() > newElement.getValue())) {
                         newElement.next = buffElement.getNext();
                         buffElement.setNext(newElement);
                         break;
                     }
-                        //Вставляем элемент,если он больше всех элементов в массиве.
+                    //Р’СЃС‚Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚,РµСЃР»Рё РѕРЅ Р±РѕР»СЊС€Рµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ.
                     else if ((buffElement.getValue() < newElement.getValue() && buffElement.getNext().getValue() < newElement.getValue()) && (buffElement.getNext().getValue() < buffElement.getValue())) {
                         newElement.next = buffElement.getNext();
                         buffElement.setNext(newElement);
                         break;
                     }
-                        //Вставляем элемент, если он меньшке всех элементов в массиве.
+                    //Р’СЃС‚Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚, РµСЃР»Рё РѕРЅ РјРµРЅСЊС€РєРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ РІ РјР°СЃСЃРёРІРµ.
                     else if ((buffElement.getValue() > newElement.getValue() && buffElement.getNext().getValue() > newElement.getValue()) && (buffElement.getNext().getValue() < buffElement.getValue())) {
                         newElement.next = buffElement.getNext();
                         buffElement.setNext(newElement);
                         break;
                     }
-                        //Если элемент с таким же значением уже есть в списке, то вставляем новый рядом с ним.
+                    //Р•СЃР»Рё СЌР»РµРјРµРЅС‚ СЃ С‚Р°РєРёРј Р¶Рµ Р·РЅР°С‡РµРЅРёРµРј СѓР¶Рµ РµСЃС‚СЊ РІ СЃРїРёСЃРєРµ, С‚Рѕ РІСЃС‚Р°РІР»СЏРµРј РЅРѕРІС‹Р№ СЂСЏРґРѕРј СЃ РЅРёРј.
                     else if (buffElement.getValue() == newElement.getValue()) {
                         newElement.next = buffElement.getNext();
                         buffElement.setNext(newElement);
                         break;
                     }
-                        //Если не одно из правил не подошло берём следующий элемент списка и снова проверяем.
+                    //Р•СЃР»Рё РЅРµ РѕРґРЅРѕ РёР· РїСЂР°РІРёР» РЅРµ РїРѕРґРѕС€Р»Рѕ Р±РµСЂС‘Рј СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚ СЃРїРёСЃРєР° Рё СЃРЅРѕРІР° РїСЂРѕРІРµСЂСЏРµРј.
                     else {
                         buffElement = buffElement.getNext();
                     }
@@ -93,3 +93,4 @@ public class List {
         }
     }
 }
+
